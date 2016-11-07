@@ -154,14 +154,15 @@ li.dropdown {
         echo "Checkout Successful!";
         unset($_SESSION['checkout_done']);
       }
-      else {
-        if(isset($_SESSION['low_balance']) == 1){
+      else if(isset($_SESSION['low_balance']) == 1){
           unset($_SESSION['low_balance']);
           echo "<font color = red>Insufficient balance</font>";
-        }
-        else {
+      }
+      else if(isset($_SESSION['cartArray']) == 0) {
+          echo "Cart is empty";
+      }
+      else {
           echo "Your cart:";
-        }
       }
       ?>
     </h2><center>
@@ -179,16 +180,16 @@ li.dropdown {
 
     </center>
       <form id="signin" action="/checkout.php" name="signin" method = "post">
-        <table width="1000" border="2" align="center" cellpadding="2" cellspacing="5">
-          <tr>
-            <td>Name</td>
-            <td>Description</td>
-            <td>Image</td>
-            <td>Price</td>
-          </tr>
           <?php
             $total = 0;
             if(isset($_SESSION['cartArray']) == 1) {
+              echo "<table width='1000' border='2' align='center' cellpadding='2' cellspacing='5'>
+                <tr>
+                  <td>Name</td>
+                  <td>Description</td>
+                  <td>Image</td>
+                  <td>Price</td>
+                </tr>";
               foreach($_SESSION['cartArray'] as $value){
 
                 $retval = mysql_query("SELECT * FROM products where id_product = '$value'");

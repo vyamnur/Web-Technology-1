@@ -130,6 +130,11 @@ li.dropdown {
 						<a href="/elec.html">Electronic Appliances</a>
 					</div>
 				</li>
+				<?php
+					if( isset($_SESSION['fname']) ){
+						echo '<li><a class="active">Hello '.$_SESSION['fname'].'!</a></li>';
+					}
+				?>
 			</ul>
 			</div>
 <a href = cart.php><input type="button" id="cart" class="shoppingcart" onclick="ShoppingCart()"/></a>
