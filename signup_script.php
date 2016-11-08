@@ -53,6 +53,6 @@
   }
   else {
     $result=mysql_query("insert into member(username, password, fname, lname) values('$username', '$password', '$fname', '$lname')");
-    echo $result;
+    header("location: login.php");
   }
 ?>

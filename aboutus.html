@@ -35,9 +35,131 @@
 	<meta name="msapplication-TileColor" content="#FFFFFF">
 	<meta name="msapplication-TileImage" content="//faviconit/favicon-144.png">
 	<meta name="msapplication-config" content="/faviconit/browserconfig.xml">
+	<style>
+		body {
+  margin: 0;
+  background: #000; 
+}
+video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+ background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+.stopfade { 
+   opacity: .5;
+}
+
+#polina { 
+  font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+  font-weight:100; 
+  background: rgba(0,0,0,0.3);
+  color: white;
+  padding: 2rem;
+  width: 33%;
+  margin:2rem;
+  float: right;
+  font-size: 1.2rem;
+}
+h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin-top: 0;
+  letter-spacing: .3rem;
+}
+#polina button { 
+  display: block;
+  width: 80%;
+  padding: .4rem;
+  border: none; 
+  margin: 1rem auto; 
+  font-size: 1.3rem;
+  background: rgba(255,255,255,0.23);
+  color: #fff;
+  border-radius: 3px; 
+  cursor: pointer;
+  transition: .3s background;
+}
+#polina button:hover { 
+   background: rgba(0,0,0,0.5);
+}
+
+a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  
+  padding: .5rem;
+  transition: .6s background; 
+}
+a:hover{
+  background:rgba(0,0,0,0.9);
+}
+@media screen and (max-width: 500px) { 
+  div{width:70%;} 
+}
+@media screen and (max-device-width: 800px) {
+  html { background: url(//demosthenes.info/assets/images/polina.jpg) #000 no-repeat center center fixed; }
+  #bgvid { display: none; }
+}
+.footer{
+	font-size:0.3em;
+	position:absolute;
+	bottom:0px;
+}
+</style>
+<script type="text/javascript">
+	var vid = document.getElementById("bgvid");
+var pauseButton = document.querySelector("#polina button");
+
+function vidFade() {
+  vid.classList.add("stopfade");
+}
+
+vid.addEventListener('ended', function()
+{
+ 
+vid.pause();
+
+vidFade();
+}); 
+
+
+pauseButton.addEventListener("click", function() {
+  vid.classList.toggle("stopfade");
+  if (vid.paused) {
+    vid.play();
+    pauseButton.innerHTML = "Pause";
+  } else {
+    vid.pause();
+    pauseButton.innerHTML = "Paused";
+  }
+})
+</script>
 	</head>
 	<body id="main">
-		Created by Ravi Shreyas Anupindi,Venkanna Reddy,Rohan Satish and Pranit Dutta.</br>
-		<a href="index.php" class="btn">Go back</a>
+	<video poster="/images/imgs/bg2.jpg" id="bgvid" playsinline autoplay muted loop>
+  <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+<source src="/videos/WEBM/Browsing.webm" type="video/webm">
+</video>
+<div id="polina">
+<h1>The Shady Mart</h1>
+<p>Created by the Associates.</p>
+<p>A simple mini e-commerce website. Features include a product database,product searches, checkout and a shopping cart. Sign-in and sign-up system also in place.</br>Hundreds of lines of code.</br>All you have to do is enjoy it.</br></p>
+<button><a href="/index.php">Get Started.</a></button>
+</div>
+<div class="footer" id="polina">
+	All rights reserved: Ravi Shreyas Anupindi</br>
+		Venkanna Reddy</br>
+		Rohan Satish</br>
+		Pranit Dutta</br>
 	</body>
 </html>

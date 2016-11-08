@@ -13,7 +13,7 @@
 	<meta name="description" content="Online market">
 	<meta name="keywords" content="sign in">
 	<meta name="author" content="Villain Associates">
-		<title>Welcome to Shady Mart</title>
+		<title>Sign-in to Shady Mart</title>
 		<link rel="stylesheet" type="text/css" href="/styles/main.css"/>
 		<link rel="stylesheet" type="text/css" href="/styles/form.css"/>
 		<link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
@@ -93,6 +93,43 @@ li.dropdown {
 	color: red;
 	background-color: white;
 }
+.page-end{
+	background:#ffffff;
+	font-family: 'Droid Sans', sans-serif;
+	width:99%;
+	height:40%;
+	position:absolute;
+	top:290px;
+	z-index:1
+}
+#contactbutton{
+	position:relative;
+	top:10px;
+	left:10px;
+}
+#fcontact{
+	position:absolute;
+	top:10px;
+	right:10px;
+	width:50px;
+	height:50px;
+}
+#tcontact{
+	position:absolute;
+	top:10px;
+	right:60px;
+	width:50px;
+	height:50px;
+}
+#aboutsite{
+	font-size:10px;
+	position:absolute;
+	bottom:40px;
+}
+#disclaimers{
+	position:absolute;
+	bottom:-10px;
+}
 		</style>
 
 		<!--<script>
@@ -111,14 +148,13 @@ li.dropdown {
 			<a href="/login.php" id="login" class="btn3">Log in</a>
 			<a href="/index.php"><img class="pagelogo" src="/images/shadymart.png" alt="ShadyMart"/></a>
 			<h1 class="page-title">Shady Mart</h1>
-			<form action="search.php" name="searchform">
-			<input type="text" class="searchbar" placeholder="Search Here"/>
-			<input type="button" id="sbutton" class="btn" value="Search"/>
+			<form action="search.php?go" name="searchform" method="post">
+			<input type="text" class="searchbar" name="name" placeholder="Search Here"/>
+			<input type="submit" id="sbutton" name="submit" class="btn" value="Search"/> 
 			</form>
 			<div id="nav">
 			<ul>
-				<li><a class="active" href="#home">Today's Deals!</a></li>
-				<li><a href="#news">Top Sellers</a></li>
+				<li><a class="active" href="aboutus.html">About Us</a></li>
 				<li class="dropdown">
 					<a href="#" class="dropbtn">Categories</a>
 					<div class="dropdown-content">
@@ -127,11 +163,16 @@ li.dropdown {
 						<a href="/elec.html">Electronic Appliances</a>
 					</div>
 				</li>
+				<?php
+ 					if( isset($_SESSION['fname']) ){
+ 						echo '<li><a class="active">Hello '.$_SESSION['fname'].'!</a></li>';
+ 					}
+				?>
 			</ul>
 			</div>
 			<a href = cart.php><input type="button" id="cart" class="shoppingcart" onclick="ShoppingCart()"/></a>
 		</div>
-		<div class="signin">
+		<div id="showcase1" class="signin">
 			<h2 class="signinbanner">Welcome to Shady Mart.</br>Sign in to embrace the shady.</h2>
 			<form id="signin" action="/login_script.php" name="signin" method = "post">
 				<table width="309" border="0" align="center" cellpadding="2" cellspacing="5">
@@ -164,7 +205,7 @@ li.dropdown {
 			</form>
 		</div>
 		<div class="page-end">
-			<a href="/contactus.html"  id="contactbutton" class="btn2">Contact Us</a>
+			<a href="contactus.php"  id="contactbutton" class="btn2">Contact Us</a>
 			<img src="/images/sprite1.jpg" alt="fbook" id="fcontact"/>
 			<img src="/images/sprite2.png" alt="twitter" id="tcontact"/>
 			<p id="aboutsite">Despite our name,we're 100% legit.Shh,it's a Secret to everyone.</p>

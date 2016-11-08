@@ -234,11 +234,17 @@ body{
 	opacity:0.4;
 }
 .displayfield{
-	padding:5px;
+	padding:15px;
+	margin:10px;
+	 border-bottom-style: solid;
+	 border-right-style:solid;
+	 box-shadow: 10px 10px 5px #ffffff;
 }
 #display-table{
-	background:#d9d9d9;
+	//background:#d9d9d9;
+	background-image:url("/images/blue.jpg");
 	font-family: 'Droid Sans', sans-serif;
+	width:100%;
 }
 #pp{
 	text-decoration:none;
@@ -254,7 +260,7 @@ body{
 
 #pp:hover {
     text-decoration: none;
-	color:blue;
+	color:white;
 }
 
 #pp:active {

@@ -5,7 +5,8 @@
 
   if(isset($_SESSION['mem_id']) == 0){
     header("location: login.php");
-  }
+	exit();
+}
 
   $userid = $_SESSION['mem_id'];
   //echo $userid;

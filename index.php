@@ -114,14 +114,14 @@ li.dropdown {
 			<a href="/login.php" id="login" class="btn3">Log in</a>
 			<a href="/index.php"><img class="pagelogo" src="/images/shadymart.png" alt="ShadyMart"/></a>
 			<h1 class="page-title">Shady Mart</h1>
-			<form action="search.php" name="searchform">
+			<form action="search.php?go" name="searchform" method="post">
 			<input type="text" class="searchbar" name="name" placeholder="Search Here"/>
-			<input type="button" id="sbutton" name="submit" class="btn" value="Search"/>
+			<input type="submit" id="sbutton" name="submit" class="btn" value="Search"/> 
 			</form>
 			<div id="nav">
 			<ul>
 				<li><a class="active" href="aboutus.html">About Us</a></li>
-				<li><a href="#news">Your Account</a></li>
+				
 				<li class="dropdown">
 					<a href="#" class="dropbtn">Categories</a>
 					<div class="dropdown-content">
@@ -131,9 +131,9 @@ li.dropdown {
 					</div>
 				</li>
 				<?php
-					if( isset($_SESSION['fname']) ){
-						echo '<li><a class="active">Hello '.$_SESSION['fname'].'!</a></li>';
-					}
+ 					if( isset($_SESSION['fname']) ){
+ 						echo '<li><a class="active">Hello '.$_SESSION['fname'].'!</a></li>';
+ 					}
 				?>
 			</ul>
 			</div>
@@ -153,7 +153,7 @@ li.dropdown {
 
 		</div>
 		<div class="page-end">
-			<a href="/contactus.html"  id="contactbutton" class="btn2">Contact Us</a>
+			<a href="contactus.php"  id="contactbutton" class="btn2">Contact Us</a>
 			<img src="/images/sprite1.jpg" alt="fbook" id="fcontact"/>
 			<img src="/images/sprite2.png" alt="twitter" id="tcontact"/>
 			<p id="aboutsite">Despite our name,we're 100% legit.Shh,it's a Secret to everyone.</p>
